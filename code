@@ -1,0 +1,44 @@
+# Color Psychology Outfit Recommender
+
+def get_mood_input():
+    mood = input("Enter your current mood (e.g., happy, sad, angry, stressed, relaxed, energetic): ").strip().lower()
+    return mood
+
+def recommend_color(mood):
+    mood_dict = {
+        "happy": "yellow",
+        "sad": "pink",
+        "angry": "green",
+        "stressed": "blue",
+        "relaxed": "green",
+        "energetic": "red",
+        "confident": "red",
+        "calm": "blue",
+        "serious": "black",
+        "caring": "pink"
+    }
+    return mood_dict.get(mood, "white")  # default color if mood not found
+
+def suggest_outfit(color):
+    outfit_dict = {
+        "red": "red hoodie or activewear",
+        "blue": "blue jeans or calm blue shirt",
+        "yellow": "yellow t-shirt or sundress",
+        "green": "green top or casual tee",
+        "black": "black blazer or trousers",
+        "pink": "pink cardigan or soft scarf",
+        "white": "a white t-shirt or shirt (neutral fallback)"
+    }
+    return outfit_dict.get(color, "an outfit of your choice")
+
+def main():
+    print("🎨 Welcome to the Color Psychology Outfit Recommender!")
+    mood = get_mood_input()
+    color = recommend_color(mood)
+    outfit = suggest_outfit(color)
+    
+    print(f"\nBased on your mood '{mood}', we recommend wearing something {color}.")
+    print(f"Suggested outfit: {outfit}")
+
+if __name__ == "__main__":
+    main()
